@@ -237,7 +237,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         
         // Update user stats
         await storage.updateUserStats(attemptData.userId, {
-          achievements: user.achievements + 1
+          achievements: (user.achievements || 0) + 1
         });
       }
       
